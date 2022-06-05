@@ -1,20 +1,9 @@
 import requests
 import pprint
 
-student_id = input('What is the product id you want to use\n')
+endpoint = 'http://localhost:8000/api/2/delete/'
 
-try: 
-    student_id = int(student_id)
-except Exception:
-    print(f'{student_id} not a valid id')
+get_response = requests.delete(endpoint)
 
-if student_id:
-
-    endpoint = f'http://localhost:8000/api/{student_id}/delete/'
-
-    get_response = requests.delete(endpoint)
-    # print(get_response.text)
-    # pprint.pprint(get_response.status_code)
-
-    pprint.pprint(get_response.status_code)
+pprint.pprint(get_response.status_code)
 

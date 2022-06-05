@@ -1,14 +1,23 @@
 from django.db import models
-from django.core.validators import MaxLengthValidator, MinLengthValidator
+from django.core.validators import MinLengthValidator, MaxValueValidator, MinValueValidator
+from django.core.exceptions import ValidationError
+from django.utils.translation import gettext_lazy as _
+
+def pesel_validator(value):
+    if not value.isdecimal():
+        raise ValidationError(
+            _('%(value)s is not a valid pesel'),
+            params={'value': value},
+        )
+    
 
 
 class Student(models.Model):
     id_stud = models.BigAutoField(primary_key=True)
-    indeks = models.CharField(
-        max_length=6,
+    indeks = models.PositiveIntegerField(
         validators=[
-            MaxLengthValidator(6),
-            MinLengthValidator(6)
+            MaxValueValidator(999999),
+            MinValueValidator(100000)
         ],
         unique=True
      )
@@ -17,9 +26,10 @@ class Student(models.Model):
     pesel = models.CharField(
         max_length=11,
         validators=[
-            MaxLengthValidator(11),
+            pesel_validator,
             MinLengthValidator(11)
-        ]
+        ],
+        unique=True
      )
 
     def __str__(self):
@@ -27,7 +37,7 @@ class Student(models.Model):
             f'indeks: {self.indeks}, pesel: {self.pesel}'
 
     class Meta:
-        ordering = ['-id_stud']
+        ordering = ['id_stud']
          
 
     

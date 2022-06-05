@@ -11,6 +11,12 @@ class StudentListView(ListView):
     context_object_name = 'student_list'
     template_name = 'api/student_list.html'
 
+class StudentNameListAPIView(generics.ListAPIView):
+    serializer_class = StudentSerializer
+
+    def get_queryset(self):
+        return Student.objects.filter(imie=self.kwargs['name'])
+
 
 class StudentCreateAPIView(generics.CreateAPIView):
     queryset = Student.objects.all()

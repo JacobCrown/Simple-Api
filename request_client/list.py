@@ -3,10 +3,7 @@ import pprint
 
 endpoint = 'http://localhost:8000/api/'
 
-
 get_response = requests.get(endpoint)
-# print(get_response.text)
-# pprint.pprint(get_response.status_code)
 
 pprint.pprint(get_response.json())
 
