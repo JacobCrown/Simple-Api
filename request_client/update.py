@@ -1,7 +1,7 @@
 import requests
 import pprint
 
-endpoint = 'http://localhost:8000/api/3/update/'
+endpoint = 'http://jacobcrown.pythonanywhere.com/api/3/update/'
 
 data = {
     'imie': 'Antoni',

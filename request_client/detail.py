@@ -1,7 +1,7 @@
 import requests
 import pprint
 
-endpoint = 'http://localhost:8000/api/10000'
+endpoint = 'http://jacobcrown.pythonanywhere.com/api/1'
 
 get_response = requests.get(endpoint)
 

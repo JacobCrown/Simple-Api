@@ -13,6 +13,7 @@ class StudentListView(ListView):
 
 class StudentNameListAPIView(generics.ListAPIView):
     serializer_class = StudentSerializer
+    model = Student
 
     def get_queryset(self):
         return Student.objects.filter(imie=self.kwargs['name'])

@@ -1,0 +1,19 @@
+# ENDPOINTS
+
+**** list.py ****
+# http://localhost:8000/api/                   | GET | -> lista studentow
+
+**** detail.py ****
+# http://localhost:8000/api/<id_stud>/         | GET | -> student o danym id
+
+**** create.py ****
+# http://localhost:8000/api/create/            | POST | -> stworzenie studenta
+
+**** update.py ****
+# http://localhost:8000/api/<id_stud>/update/  | PUT | -> modyfikacja studenta
+
+**** delete.py ****
+# http://localhost:8000/api/<id_stud>/delete/  | DELETE | -> usuniecie studenta
+
+**** get_all_names.py ****
+# http://localhost:8000/api/<id_stud>/delete/  | GET | -> lista studentów o danych imieniach

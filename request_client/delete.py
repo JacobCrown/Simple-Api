@@ -1,7 +1,7 @@
 import requests
 import pprint
 
-endpoint = 'http://localhost:8000/api/2/delete/'
+endpoint = 'http://jacobcrown.pythonanywhere.com/api/2/delete/'
 
 get_response = requests.delete(endpoint)
 
